@@ -5,7 +5,7 @@ before_install:
   - docker build -t myimage/docker-react .
 
 script:
-  - docker run -d myimage/docker-react npm run test -- --coverage
+  - docker run -d -p 80:80 myimage/docker-react 
 
 deploy:
   provider: elasticbeanstalk
