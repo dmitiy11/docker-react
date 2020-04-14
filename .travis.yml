@@ -1,9 +1,8 @@
-dist: bionic
 services:
   - docker
     
 before_install:
-  - docker build -t myimage/docker-react -f Dockerfile.dev .
+  - docker build -t myimage/docker-react -f Dockerfile .
 
 script:
   - docker run -d myimage/docker-react npm run test -- --coverage
@@ -12,7 +11,7 @@ deploy:
   provider: elasticbeanstalk
   region: "eu-central-1"
   app: "docker"
-  env: "Docker-env"
+  env: "Docker-env-1"
   bucket_name: "elasticbeanstalk-eu-central-1-712243451067"
   bucket_path: "docker"
   on:
